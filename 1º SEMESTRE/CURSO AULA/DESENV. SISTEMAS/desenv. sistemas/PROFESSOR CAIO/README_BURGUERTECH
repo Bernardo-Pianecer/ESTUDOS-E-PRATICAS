@@ -1,0 +1,90 @@
+🍔 BURGUER TECH
+
+Sistema simples de atendimento em terminal para pedidos de hamburgueria, desenvolvido em Batch Script (.bat), com geração automática de resumo do pedido.
+
+📌 Sobre o Projeto
+
+O Burguer Tech é um sistema de linha de comando que simula o atendimento de uma hamburgueria.
+Ele permite:
+
+Cadastro do nome do cliente
+Escolha de hambúrguer
+Escolha de bebida
+Cálculo automático do total
+Exibição do resumo do pedido
+Geração de um arquivo .txt com a nota
+
+O projeto foi pensado como uma aplicação simples para praticar:
+
+Lógica de programação
+Estruturas condicionais
+Interação com o usuário via terminal
+Manipulação de arquivos no Windows
+🧠 Lógica do Sistema
+
+O fluxo do sistema segue a seguinte sequência:
+
+Início do programa
+Exibição do nome "Burguer Tech"
+Configuração visual do terminal
+Entrada do nome do cliente
+Exibição do cardápio de hambúrgueres
+Escolha do hambúrguer
+Exibição do cardápio de bebidas
+Escolha da bebida
+Cálculo do valor total
+Exibição do resumo
+Geração da nota em arquivo .txt
+🔄 Fluxograma
+
+O sistema foi modelado utilizando fluxograma no Draw.io, representando toda a lógica do processo.
+
+Etapas principais:
+
+Entrada de dados
+Decisão (escolha de produtos)
+Processamento (cálculo)
+Saída (resumo + arquivo)
+⚙️ Tecnologias Utilizadas
+Batch Script (Windows CMD)
+Draw.io (para modelagem do fluxo)
+📂 Estrutura do Projeto
+BURGUER TECH/
+│
+├── BURGUERTECH01.bat      # Código principal
+├── FLUXOGRAMA.DRAWIO     # Fluxograma do sistema
+└── SA1_BURGUER_TECH/
+    └── pasta_saida/
+        └── nota_<cliente>.txt
+🚀 Como Executar
+Baixe ou clone o projeto
+Execute o arquivo:
+BURGUERTECH01.bat
+Siga as instruções no terminal:
+Digite o nome do cliente
+Escolha o hambúrguer
+Escolha a bebida
+💰 Cardápio
+🍔 Hambúrgueres
+Código	Produto	Preço
+1	X-Burguer	R$ 20
+2	X-Salada	R$ 17
+3	X-Bacon	R$ 22
+5	Combo	R$ 30
+🥤 Bebidas
+Código	Produto	Preço
+6	Coca-Cola	R$ 12
+7	Suco Natural	R$ 8
+8	Guaraná	R$ 10
+🧾 Saída do Sistema
+
+O sistema gera:
+
+✔️ No terminal:
+Resumo completo do pedido
+Valor total
+✔️ Em arquivo:
+
+Um arquivo .txt contendo:
+
+nota_<nome_do_cliente>.txt

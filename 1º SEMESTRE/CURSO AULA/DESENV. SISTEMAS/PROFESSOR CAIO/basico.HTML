@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Teste</title>
+
+<style>
+        body{
+            display: flex;
+            justify-content: center; /* centraliza horizontal */
+            margin: 0;               /* remove margem padrão */
+            align-items: center;
+            background-color: navy;
+            color: white;
+        }
+        input{
+            align-items: center;
+            background-color: beige;
+            border-color: brown;
+            color: black;
+        }
+        .titulo_formulario{
+            align-items: center;
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: medium;
+        }
+        .formulario{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: white;
+            color: blue;
+            border: 5px solid black;
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+
+    </head>
+
+<body>
+
+    <div class="formulario">
+        <h1 class="titulo_formulario">FORMULARIO</h1>
+        <p><input class="input01" type="text"></p>
+        <p><input class="input02" type="text"></p>
+        <p><button class="enviar" type="button" onclick="calcular()">ENVIAR</p>
+    </div>
+
+    <script>
+
+        let receber = document.querySelector(".receber");
+
+        function echo(texto){
+            receber.innerHTML += "<br>" + texto;
+        }
+        function calcular(){
+
+            let input01 = Number(document.querySelector(".input01").value);
+            let input02 = Number(document.querySelector(".input02").value);
+            if(typeof input01 !== 'number' 
+            || Number.isNaN(input01)
+            ){
+                alert("Erro algum input  nao é valido");
+                return;
+            }
+            
+            
+            let calculo = input01 + input02;
+            alert(calculo);
+        }
+
+
+
+
+
+        echo("Novo texto!");
+
+        let n1 = 5;
+        let n2 = 3;
+
+        let soma = n1 + n2;
+
+        echo(soma);
+
+        const n5 = 5;
+
+        echo(n5);
+
+        let str1 = "1";
+        let str2 = "1";
+        let somarString = Number(str1)+Number(str2);
+        echo(somarString);
+        
+
+    </script>
+
+</body>
+</html>

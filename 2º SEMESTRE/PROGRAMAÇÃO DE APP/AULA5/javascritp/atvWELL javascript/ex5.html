@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Exercicio 5</title>
+        <style>
+        main {
+            width: 50%;
+            margin-left: 25%;
+            border: 1px solid gray;
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        input,
+        label,
+        select,
+        button {
+            width: 100%;
+        }
+        #estrela{
+            width: 100%;
+            height: 20px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            
+        }
+        .cheia{
+            color: #FFE500;
+        }
+        .vazia{
+            color: #52541F;
+        }
+
+    </style>
+    </head>
+    <body>
+        <main>
+            <h1>Exercicio 5</h1>
+            <h1>AVALIE O FILME</h1>
+            <div class="estrelas" id="estrela">
+                <Span class="vazia">&#9733;</Span>
+                <Span class="vazia">&#9733;</Span>
+                <Span class="vazia">&#9733;</Span>
+                <Span class="vazia">&#9733;</Span>
+                <Span class="vazia">&#9733;</Span>
+            </div>
+
+            <input type="range" id="nota" min="0" max="5" value="0" oninput="enviar()"/>
+        </main>
+        <footer></footer>
+        <script>
+    function enviar() {
+        const avaliar = Number(document.getElementById("nota").value);
+        let nota = "";
+        for (let i = 1; i <= 5; i++) {
+            if (i <= avaliar) {
+                nota += '<span class="cheia">&#9733;</span>';
+            } else {
+                nota += '<span class="vazia">&#9733;</span>';
+            }
+        }
+        document.getElementById("estrela").innerHTML = nota;
+    }
+        </script>
+    </body>
+
+</html>

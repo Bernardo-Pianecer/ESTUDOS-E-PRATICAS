@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>Exercício 1</title>
+    <style>
+        main {
+            width: 50%;
+            margin-left: 25%;
+            border: 1px solid gray;
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        input,
+        label,
+        select,
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <label>Idade</label>
+        <input type="number" name="idade" id="idade" />
+
+        <label>Classificação</label>
+        <select name="classificacao" id="classificacao">
+            <option value="12">12 anos</option>
+            <option value="16">16 anos</option>
+            <option value="18">+ 18 anos</option>
+        </select>
+
+        <button onclick="enviar()">Enviar</button>
+
+        <p id="retorno"></p>
+    </main>
+
+</body>
+
+<script>
+    function enviar() {
+        const idade = Number(document.getElementById("idade").value);
+        const classificacao = Number(document.getElementById("classificacao").value);
+        const retorno = document.getElementById("retorno");
+        let anofaltantes = 0;
+        if (idade > 0) {
+            if (idade >= classificacao) {
+                retorno.innerText = "classificação: liberado!";
+                retorno.style.color = "green";
+            } else {
+                anofaltantes = classificacao - idade;
+                retorno.innerText = "classificação: negado! Faltam "+anofaltantes+" anos";
+                retorno.style.color = "red";
+            }
+        }else{
+            retorno.innerText = "campo vazio! preencha a idade!";
+            retorno.style.color = "red";
+        }
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>BURGUER TECH</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="estilo.css">
+    <div class="headContainer">
+        <h1>BURGER TECH</h1>
+    </div>
+    <div id="tela-login" class="tela" >
+        <h2 class="titulo_Forms">Seja Bem vindo ao Totem</h2>
+        <input  class="caixa_Nome"
+                type="text" 
+                id="nomeCliente"
+                placeholder="Escreva seu Nome Aqui" />
+
+        <button class="botao_enviarNome" 
+                onclick="irParaCardapio()">
+                COMEÇAR PEDIDO</button>
+
+    </div>
+    <div id="tela_cardapaio" class="tela" style="display: none;">
+        <h2>Olá, <span id="span-nome"></span>!</h2>
+        <div class="grade-botoes">
+            <button class="btn-opcaoHamb" onclick="selecionarLanche('Super Burguer', 20)"> Super Burguer <br> R$ 20 </button>
+            <button class="btn-opcaoHamb" onclick="selecionarLanche('Mega Burguer', 20)"> Mega Burguer <br> R$ 30 </button>
+        </div>
+    </div>
+    <div id="tela-combo" class="tela" style="display: none;">
+        <h2>Deseja Combo?</h2>
+        <p>Batata + Refri por apenas +R$ 10,00</p>
+        <div class="grade-botoes">
+            <button class="btn-sim" onclick="finalizar(true)">Sim (+ R$ 10)</button>
+            <button class="btn-nao" onclick="finalizar(false)">Não (SÓ O LANCHE)</button>
+        </div>
+    </div>
+    <div id="tela-final" class="tela" style="display: none ;">
+        <div class="cupom">
+            <h2>PEDIDO FINALIZADO</h3>
+            <hr>
+            <p id="res-nome"></p>
+            <p id="res-item"></p>
+            <p id="res-total" class="total"></p>
+        </div>
+        <button class="btn-proximo" onclick="reiniciar()">NOVO PEDIDO</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

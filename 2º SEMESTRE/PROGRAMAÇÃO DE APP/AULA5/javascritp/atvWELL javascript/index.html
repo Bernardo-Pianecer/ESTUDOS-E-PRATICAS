@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Javascript</title>
+    <style>
+        .nivel-baixo {
+            background: red;
+        }
+
+        .nivel-medio {
+            background: yellow;
+        }
+
+        .nivel-completo {
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" name="porcentagem" id="porcentagem">
+    <button onclick="calcular()">Calcular</button>
+    <p id="barra">Retorno</p>
+
+</body>
+
+<script>
+    function calcular() {
+        const porcentagem = (document.getElementById("porcentagem").value);
+        const barra = document.getElementById("barra");
+        let repeticao = 0;
+        let itens = '';
+        console.log(barra);
+        if (porcentagem < 50) {
+            barra.classList.remove("nivel-medio");
+            barra.classList.remove("nivel-completo");
+            barra.classList.add("nivel-baixo");
+            barra.style.fontSize = 100;
+            barra.innerText = "Nivel Baixo";
+            repeticao = 10;
+        } else if (porcentagem < 100) {
+            barra.classList.add("nivel-medio");
+            repeticao = 5;
+        } else {
+            barra.classList.add("nivel-completo");
+            repeticao = 1;
+        }
+
+        for (repetir = 1; repetir <= repeticao; repetir++) {
+            itens += `<p>Repetindo</p>`;
+        }
+        barra.innerHTML = itens;
+    }
+
+</script>
+
+</html>

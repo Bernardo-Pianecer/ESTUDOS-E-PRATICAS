@@ -1,0 +1,86 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 30px Impact, sans-serif;
+    margin: 0;
+    background: #F0CE4E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.headContainer{
+    padding: 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background: #F0CE4E;
+    color: #BF2A23;
+}
+
+.headContainer h1{
+    margin: 0;
+    padding: 10px;
+}
+
+.tela{
+    width: 500px;
+    height: 500px;
+    background: #cf872e;
+    border: 5px solid #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    transition: .3s;
+    justify-content: center;
+}
+button{
+    transition: .3s;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 70px 4px 4px 4px;
+    background-color: #a6ad3c;
+    color: white;
+    height: 40px;
+    width: 180px;
+    border-radius: 15px;
+    border-color: black;
+}
+
+button:hover{
+    box-shadow: 0 0 15px hsl(0, 0%, 0%);
+    transform: scale(1.05);
+}
+.tela:hover{
+    box-shadow: 0 0 15px hsl(0, 0%, 0%);
+}
+h2{
+    margin-top: 25px;
+    color: #fff;
+    align-content: flex-start;
+    border: black;
+}
+p{
+    margin-top: 25px;
+    color: #fff;
+    align-content: flex-start;
+}
+.caixa_Nome{
+    padding: 5px;;
+    margin: 50px;
+    width: 210px;
+    height: 30px;
+    border-radius: 5px;
+    border-color: black;
+}
+.btn-proximo{
+    background-color: #BF2A23;
+}

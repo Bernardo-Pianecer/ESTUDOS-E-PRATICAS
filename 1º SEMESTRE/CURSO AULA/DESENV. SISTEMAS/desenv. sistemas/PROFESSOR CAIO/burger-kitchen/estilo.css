@@ -1,0 +1,182 @@
+/* Reset Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121214;
+    color: #e1e1e6;
+    padding: 20px;
+}
+
+/* Cabeçalho superior */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #29292e;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #ff9000;
+    font-size: 24px;
+}
+
+.stats {
+    background-color: #202024;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #ff9000;
+    font-weight: bold;
+}
+
+/* Painel superior do Simulador */
+.simulador-totem {
+    background-color: #202024;
+    border: 1px dashed #ff9000;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.simulador-totem h3 {
+    font-size: 16px;
+    color: #ff9000;
+    margin-bottom: 15px;
+}
+
+.form-totem {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Estilo customizado para as caixas de Select */
+.form-totem select {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px;
+    background-color: #121214;
+    border: 1px solid #29292e;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-totem select:focus {
+    border-color: #ff9000;
+    outline: none;
+}
+
+/* Botão de envio do Totem */
+.form-totem button {
+    background-color: #ff9000;
+    color: #121214;
+    border: none;
+    padding: 12px 24px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.form-totem button:hover {
+    background-color: #e08200;
+}
+
+/* Grid para alinhar os Cards lado a lado */
+.painel-cozinha {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Estilização básica do Card */
+.card-pedido {
+    background-color: #202024;
+    border: 2px solid #29292e;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-pedido:hover {
+    transform: translateY(-3px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #29292e;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.numero-pedido {
+    font-weight: bold;
+    color: #ff9000;
+}
+
+.horario {
+    font-size: 13px;
+    color: #7c7c8a;
+}
+
+.itens-pedido {
+    list-style: none;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.itens-pedido li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #e1e1e6;
+}
+
+/* Botões internos do card (Iniciar / Concluir) */
+.btn-status {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+/* Mudanças de cores de acordo com o status atual */
+.card-pedido.pendente { 
+    border-color: #fba94c; 
+    box-shadow: 0 4px 10px rgba(251, 169, 76, 0.1);
+}
+.btn-preparar { 
+    background-color: #fba94c; 
+    color: #121214; 
+}
+.btn-preparar:hover { 
+    background-color: #e09236; 
+}
+
+.card-pedido.preparando { 
+    border-color: #00b37e; 
+    box-shadow: 0 4px 10px rgba(0, 179, 126, 0.1);
+}
+.btn-finalizar { 
+    background-color: #00b37e; 
+    color: #ffffff; 
+}
+.btn-finalizar:hover { 
+    background-color: #00875f; 
+}

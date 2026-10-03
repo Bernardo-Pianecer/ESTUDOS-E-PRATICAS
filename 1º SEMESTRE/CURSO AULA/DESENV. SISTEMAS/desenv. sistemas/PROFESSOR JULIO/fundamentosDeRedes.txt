@@ -1,0 +1,31 @@
+Fundamentos de Redes de Computadores
+    Conceitos
+    Tipos de RedesModelo de Referencia
+    Aplicação no Desenvolvimento
+
+pan = poucos metros
+lan = local
+man = cidade
+wan = global
+
+FLUXO DE DADOS
+    DNS - transforma o ip() em o link do site
+    tcp - conecta o link para sair do servidor local
+    http - nao é seguro
+    servidor responde
+
+Camadas OSI
+    Fisica - bit e Byte - HARDWARE - cabos de rede
+    Enlace - Switch - local
+    Redes - Endereço IP e DNS - IP - roteador
+    Transporte - Transporte do ip - TCP
+        TCP MELHOR QUE UDP(nao é orientado a conexao)
+    Sessão - Autenticação - LOGIN
+    Apresentação - Conferencia dos dados - JSON - criptografia
+    Aplicação - Front end - API - http e https
+
+    Modelo TCP/IP
+    Acesso a Redes
+    Internet
+    Transporte
+    Aplicação

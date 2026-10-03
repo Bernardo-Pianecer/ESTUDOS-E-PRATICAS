@@ -1,0 +1,41 @@
+*{
+    
+    margin: 0; /* Remove a margem padrão de todos os elementos */
+    padding: 0; /* Remove o preenchimento padrão de todos os elementos */
+    box-sizing: border-box; /* Define o modelo de caixa para incluir padding e border na largura e altura dos elementos */
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:navy;
+}
+.container{
+    width: 100%; /* Define a largura do container como 100% da largura da tela */
+    max-width: 1200px; /* Define a largura máxima do container */
+    height: 600px; /* Define a altura do container */
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-flow: row wrap; /* Permite que os itens se ajustem em várias linhas */
+    justify-content: space-between; /* Distribui os itens com espaço entre eles */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    row-gap: 5px; /* Define o espaçamento entre as linhas */
+    column-gap: 5px; /* Define o espaçamento entre as colunas */
+}
+.item{
+    width: 125px; /* Define a largura fixa para os itens */
+    height: 125px; /* Define a altura fixa para os itens */
+    background-color: #aad6ec;
+    padding: 20px; /* Adiciona espaçamento interno */
+    margin: 10px; /* Adiciona espaçamento entre os itens */
+    text-align: center; /* Centraliza o conteúdo dentro dos itens */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    flex-grow: 1; /* Permite que os itens cresçam para preencher o espaço disponível */
+    flex-basis: 125px; /* Define a largura base dos itens */
+    align-self: center; /* Alinha os itens individualmente ao centro */
+}
+.item:hover{
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    transform: scale(1.05);
+    }   

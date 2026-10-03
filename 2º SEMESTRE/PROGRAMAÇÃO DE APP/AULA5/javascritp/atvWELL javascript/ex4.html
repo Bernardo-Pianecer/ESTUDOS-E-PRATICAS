@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Exercicio 4</title>
+        
+    </head>
+    <body>
+        <main>
+            <input type="number" id="tabuada"placeholder="Digite o numero da Tabuada">
+            <button id="gerar" onclick="gerarTabuada()">Gerar Tabuada</button>
+            <h1>Exercicio 4</h1>
+            <ul id="retorno">
+                <li></li>
+            </ul>
+        </main>
+        <footer></footer>
+        <script>
+            function gerarTabuada() {
+                const tabuada = Number(document.getElementById("tabuada").value);
+                let retorno = "";
+                for (let i = 1; i <= 10; i++) {
+                    retorno += "<li>" + tabuada + " x " + i + " = " + (tabuada * i) + "</li>";
+                }
+                document.getElementById("retorno").innerHTML = retorno;
+        }
+        </script>
+    </body>
+
+</html>

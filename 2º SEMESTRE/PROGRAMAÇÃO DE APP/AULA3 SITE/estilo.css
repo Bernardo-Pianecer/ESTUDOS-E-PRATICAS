@@ -1,0 +1,147 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+x-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    border-radius: 50%;
+}
+body {
+    background-color: #020f26;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.topo {
+    width: 100%;
+    height: 92px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #020f26;
+    border-bottom: 2px solid #93693d;
+    transition: border-bottom 0.5s ease-in-out ;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.37);
+    transition: box-shadow 0.3s ease-in-out;
+}
+.titleNav{
+    width: 40%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.links{
+    list-style: none;
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 12px;
+}
+.links li {
+    position: relative;
+    width: 15%;
+    height: 100%;
+    text-align: center;
+    font-size: 19.5px;
+}
+
+.links li::after {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    width: 0;
+    height: 5px;
+    background-color: #93693d;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+    text-align: center;
+}
+
+.links li:hover::after {
+    width: 100%;
+}
+.simbolo{
+    font-size: 40px;
+    color: #f4bf1e;
+    font-weight: bolder;
+}
+.nomeTopo{
+    margin-left: 6px;
+    font-size: 38.5px;
+    color:oldlace;
+    font-weight: 600;
+}
+.main {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("img/imgFundo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.inicio{
+
+    margin: 50px;
+    padding-top: 20px;
+    width: 90%;
+    height: 800px;
+    background: none;
+    display: flex;
+    flex-flow: row wrap-reverse;
+    justify-content: ;
+    align-items: center;
+    overflow-x: hidden;
+}
+.textosTelaInicial{
+    padding-top: 20px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: start;
+    align-items: start;
+}
+.saudação{
+    font-size: 40px;
+    color: #f4bf1e;
+    font-weight: bolder;
+}
+.cardImagem{
+    display: flex;
+    padding: 20px;
+    width: 50%;
+    height: 600px;
+    align-items: center;
+    justify-content: end;
+    padding-right: 75px;
+    border-color: #93693d;
+}
+.cardImagem img{
+    width: 400px;
+    height: 590px;
+    border-color: #93693d;
+}

@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Burger Tech</title>
+
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #F0CE4E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;     
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.headContainer{
+    font-size: 30px;
+    background-color: #F0CE4E;
+    color: #BF2A23;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.cardapio{
+    margin-top: 100px;
+    padding: 20px;
+    width: 400px;
+    background-color: #cf872e;
+    border-radius: 15px;
+    border: 5px solid white;
+    text-align: center;
+}
+
+select, input, button{
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+button{
+    background-color: #BF2A23;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.resumo{
+    margin-top: 15px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="headContainer">
+    <h1>BURGER TECH</h1>
+</div>
+
+<div class="cardapio">
+
+    <input type="text" id="nome" placeholder="Nome do cliente">
+
+    <select id="hamburguer">
+        <option value="">Escolha o hambúrguer</option>
+        <option value="20">X-Burguer - R$20</option>
+        <option value="17">X-Salada - R$17</option>
+        <option value="22">X-Bacon - R$22</option>
+        <option value="30">Combo - R$30</option>
+    </select>
+
+    <select id="bebida">
+        <option value="">Escolha a bebida</option>
+        <option value="12">Coca-Cola - R$12</option>
+        <option value="8">Suco Natural - R$8</option>
+        <option value="10">Guaraná - R$10</option>
+    </select>
+
+    <button onclick="fazerPedido()">Finalizar Pedido</button>
+
+    <div class="resumo" id="resumo"></div>
+
+</div>
+
+<script>
+function fazerPedido(){
+    let nome = document.getElementById("nome").value;
+    let hamb = document.getElementById("hamburguer");
+    let bebida = document.getElementById("bebida");
+
+    let precoHamb = Number(hamb.value);
+    let precoBebida = Number(bebida.value);
+
+    let nomeHamb = hamb.options[hamb.selectedIndex].text;
+    let nomeBebida = bebida.options[bebida.selectedIndex].text;
+
+    if(nome === "" || precoHamb === 0 || precoBebida === 0){
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    let total = precoHamb + precoBebida;
+
+    let resultado = `
+        <h3>Resumo do Pedido</h3>
+        <p><strong>Cliente:</strong> ${nome}</p>
+        <p><strong>Hambúrguer:</strong> ${nomeHamb}</p>
+        <p><strong>Bebida:</strong> ${nomeBebida}</p>
+        <p><strong>Total:</strong> R$ ${total}</p>
+    `;
+
+    document.getElementById("resumo").innerHTML = resultado;
+}
+</script>
+
+</body>
+</html>

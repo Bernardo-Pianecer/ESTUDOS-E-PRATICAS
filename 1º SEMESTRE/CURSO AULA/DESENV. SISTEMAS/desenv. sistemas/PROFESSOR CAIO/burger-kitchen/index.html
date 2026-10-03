@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta 
+            name="viewport" 
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Burger Tech | KDS Cozinha Premium</title>
+    </head>
+    <body>
+        <link rel="stylesheet" href="estilo.css"/>
+
+        <header>
+            <h1>🍔 Burger Tech — Monitor da Cozinha (KDS)</h1>
+            <div class="stats">
+                <span id="contador-pedidos">Pedidos Pendentes: 0</span>
+            </div>
+        </header>
+
+        <section class="simulador-totem">
+            <h3>🚀 Simulador de Novo Pedido (Simulando o Totem)</h3>
+            <div class="form-totem">
+
+                <select id="select-lanche">
+                    <option value="">-- Escolha o Hambúrguer --</option>
+                    <option value="1x Monster Burger">1x Monster Burger</option>
+                    <option value="1x Smash Burger">1x Smash Burger</option>
+                    <option value="1x Chicken Burger">1x Chicken Burger</option>
+                    <option value="1x Duplo Bacon">1x Duplo Bacon</option>
+                </select>
+
+                <select id="select-acompanhamento">
+                    <option value="">-- Escolha o Acompanhamento --</option>
+                    <option value="1x Batata Frita">1x Batata Frita</option>
+                    <option value="1x Batata Rústica">1x Batata Rústica</option>
+                    <option value="1x Onion Rings">1x Onion Rings</option>
+                </select>
+
+                <select id="select-bebida">
+                    <option value="">-- Escolha a Bebida --</option>
+                    <option value="1x Coca-Cola">1x Coca-Cola</option>
+                    <option value="1x Guaraná Antarctica">1x Guaraná Antarctica</option>
+                    <option value="1x Fanta Laranja">1x Fanta Laranja</option>
+                    <option value="1x Suco de Laranja">1x Suco de Laranja</option>
+                </select>
+
+                <button onclick="criarPedidoDoTotem()">Enviar para a Cozinha</button>
+
+            </div>
+        </section>
+
+        <main 
+            class="painel-cozinha" 
+            id="container-pedidos"
+        ></main>
+
+        <audio 
+            id="som-notificacao" 
+            src="https://assets.mixkit.co/active_storage/sfx/2869/2869-84.wav"
+        ></audio>
+
+        <script src="script.js"></script>
+    </body>
+</html>

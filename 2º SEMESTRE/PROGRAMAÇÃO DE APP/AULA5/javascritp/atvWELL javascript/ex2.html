@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Exercício 1</title>
+    <style>
+        main {
+            width: 50%;
+            margin-left: 25%;
+            border: 1px solid gray;
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        input,
+        label,
+        select,
+        button {
+            width: 100%;
+        }
+        #barrinha{
+            width: 100%;
+            height: 20px;
+            text-align: center;
+            color: white;
+            
+        }
+        .critica{
+            background: red;
+        }
+        .baixa{
+            background: yellow;
+        }
+        .normal{
+            background: green;
+        }
+        .cheia{
+            background: blue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <label>Carga</label>
+       <input type="range" id="carga" max="100" value="0" oninput="enviar()"/>
+
+       
+        <p id="barrinha" class="critica">0</p>
+    </main>
+
+</body>
+
+<script>
+    function enviar() {
+        const carga = Number(document.getElementById("carga").value);
+        const barrinha = document.getElementById("barrinha");
+        console.log(carga);
+          barrinha.classList.remove("critica", "baixa", "normal", "cheia");
+        barrinha.textContent = carga;
+        if(carga <= 15){
+            barrinha.classList.add("critica");
+        }else if(carga <= 40){
+            barrinha.classList.add("baixa");
+        }else if(carga < 100){
+            barrinha.classList.add("normal");
+        }else{
+            barrinha.classList.add("cheia");
+        }
+    }
+
+</script>
+
+</html>

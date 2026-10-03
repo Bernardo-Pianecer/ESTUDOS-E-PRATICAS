@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+x-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    border-radius: 50%;
+}
+body {
+    background-color: #0a2945;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #184666;
+    border-bottom: 2px solid #f4bf1e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.37);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.topo:hover {
+    box-shadow: 0 4px 15px rgba(0, 255, 251, 0.85);
+}
+.bloco-esquerdo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-flow: row wrap;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,255,251,.85);
+}
+
+.topo h1 {
+    margin: 0;
+    font-style: italic;
+}
+
+.bloco-direito ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.bloco-direito a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bloco-direito a:hover {
+    color: #00ffff;
+}
+main{
+    width: 93,5%;
+    max-width: 1200px;
+    height: 100%;
+    padding: 40px 145px 20px 145px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #264b6b;
+    border: 2px solid #f4bf1e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.37);
+    transition: box-shadow 0.3s ease-in-out;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+main:hover {
+    box-shadow: 0 4px 15px rgba(0, 255, 251, 0.85);
+}
+.sobreMim{
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+.textoSobreMim {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 18px;
+}
+.destaque {
+    margin-top: 20px;
+    text-align: justify;
+    font-size: 18px;
+}
+.skills {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 200px;
+}
+.html, .css, .javascript, .python, .c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 50px;
+    height: 50px;
+    margin: 25px;
+
+}
+.barra {
+    width: 45px;
+    height: 10px;
+    background-color: #9494a9;
+    border: 2px solid #f4bf1e;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #0a2945;
+}
+
+.progresso {
+    width: 50%;
+    height: 100%;
+    background-color: #6c1ef4;
+    transition: width 0.5s ease-in-out;
+}
+
+.progresso:hover {
+    box-shadow: 0 0 20px #0a2945;
+}

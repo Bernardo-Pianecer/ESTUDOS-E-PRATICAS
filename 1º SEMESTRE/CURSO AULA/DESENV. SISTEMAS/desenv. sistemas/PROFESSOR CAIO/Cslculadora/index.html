@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="estilo.css"/>
+
+<div class="calculadora">
+
+    <div class="titulo">calculadora</div>
+    
+    <div class="tela">
+        <input
+            type="text"
+            class="inputTela"
+            id="visor"
+            disabled
+            placeholder="0"
+            />
+    </div>
+
+    <div class="teclado">
+        <button onclick="limpar()" class="btn-especial">C</button>
+        <button onclick="apagar()" class="btn-especial">del</button>
+        <button onclick="digitar('/')" class="btn-operador">/</button>
+        <button onclick="digitar('*')" class="btn-operador">*</button>
+
+        <button onclick="digitar('7')">7</button>
+        <button onclick="digitar('8')">8</button>
+        <button onclick="digitar('9')">9</button>
+        <button onclick="digitar('-')" class="btn-operador">-</button>
+
+        <button onclick="digitar('4')">4</button>
+        <button onclick="digitar('5')">5</button>
+        <button onclick="digitar('6')">6</button>
+        <button onclick="digitar('+')" class="btn-operador">+</button>
+
+        <button onclick="digitar('1')">1</button>
+        <button onclick="digitar('2')">2</button>
+        <button onclick="digitar('3')">3</button>
+        <button onclick="resultado()" class="btn-igual">=</button>
+
+        <button onclick="digitar('0')" class="btn-zero" >0</button>
+        <button onclick="digitar('.')">.</button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>

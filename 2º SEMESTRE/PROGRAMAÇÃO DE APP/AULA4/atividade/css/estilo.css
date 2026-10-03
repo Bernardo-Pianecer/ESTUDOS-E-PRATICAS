@@ -1,0 +1,423 @@
+/* =========================================================
+   Exercício 1 — Carrinho de compras
+   O HTML e o CSS já estão prontos. Seu trabalho é o app.js.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --teal: #3bbfa0;
+    --teal-escuro: #2a9d80;
+    --texto: #2d3436;
+    --texto-claro: #6b7575;
+    --linha: #e3eaea;
+    --fundo: #f2f5f5;
+    --cartao: #ffffff;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.5;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ---------------- TOPO ---------------- */
+.topo {
+    background: var(--teal-escuro);
+    color: #fff;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topo h1 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.carrinho-icone {
+    position: relative;
+    font-size: 1.5rem;
+}
+
+.carrinho-icone .contador {
+    position: absolute;
+    top: -6px;
+    right: -12px;
+    background: #e74c3c;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+}
+
+/* ---------------- LAYOUT ---------------- */
+.conteudo {
+    max-width: 1000px;
+    margin: 26px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 22px;
+    align-items: start;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--teal-escuro);
+}
+
+/* ---------------- PRODUTOS ---------------- */
+.produto {
+    background: var(--cartao);
+    border: 1px solid var(--linha);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    display: grid;
+    grid-template-columns: 56px 1fr 90px 110px;
+    gap: 14px;
+    align-items: center;
+    transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.produto .foto {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: #eef6f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.produto .info h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.produto .marca {
+    font-size: 0.75rem;
+    color: var(--texto-claro);
+}
+
+.produto .preco {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--teal-escuro);
+    margin-top: 3px;
+}
+
+.produto .controles {
+    text-align: center;
+}
+
+.produto .controles label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--texto-claro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+.produto input[type="number"] {
+    width: 100%;
+    padding: 7px 8px;
+    border: 1px solid var(--linha);
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--texto);
+    background: #fff;
+}
+
+.produto input[type="number"]:focus {
+    outline: 2px solid var(--teal);
+    border-color: var(--teal);
+}
+
+.produto .subtotal {
+    text-align: right;
+}
+
+.produto .subtotal .rotulo {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--texto-claro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.produto .subtotal .valor {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* classe usada no exercício 16 */
+.produto.destaque {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    box-shadow: 0 3px 14px rgba(245, 158, 11, 0.18);
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+/* ---------------- RESUMO ---------------- */
+.resumo {
+    background: var(--cartao);
+    border: 1px solid var(--linha);
+    border-radius: 12px;
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+.frete-gratis {
+    margin-bottom: 18px;
+}
+
+.frete-texto {
+    font-size: 0.75rem;
+    color: var(--texto-claro);
+    margin-bottom: 6px;
+}
+
+.barra {
+    width: 100%;
+    height: 8px;
+    background: #eef2f2;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* a largura desta barra é definida no exercício 18 */
+.barra-progresso {
+    width: 0%;
+    height: 100%;
+    background: var(--teal);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.cupom {
+    margin-bottom: 18px;
+}
+
+.cupom label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--texto-claro);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.cupom-linha {
+    display: flex;
+    gap: 6px;
+}
+
+.cupom input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 10px;
+    border: 1px solid var(--linha);
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--texto);
+    background: #fff;
+}
+
+.cupom input:focus {
+    outline: 2px solid var(--teal);
+    border-color: var(--teal);
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    font-size: 0.9rem;
+    color: var(--texto-claro);
+    border-bottom: 1px solid var(--linha);
+}
+
+.linha span:last-child {
+    color: var(--texto);
+    font-weight: 600;
+}
+
+.linha-total {
+    border-bottom: none;
+    border-top: 2px solid var(--linha);
+    margin-top: 6px;
+    padding-top: 12px;
+    font-size: 1rem;
+}
+
+.linha-total span:last-child {
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+/* ---------------- BOTÕES ---------------- */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-principal {
+    width: 100%;
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--teal);
+    color: #fff;
+    border: none;
+    font-size: 0.95rem;
+}
+
+.btn-principal:hover {
+    background: var(--teal-escuro);
+}
+
+.btn-limpar {
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px;
+    background: transparent;
+    color: var(--texto-claro);
+    border: 1px solid var(--linha);
+    font-size: 0.85rem;
+}
+
+.btn-limpar:hover {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
+
+.btn-secundario {
+    padding: 8px 14px;
+    background: #fff;
+    color: var(--teal-escuro);
+    border: 1px solid var(--teal);
+    font-size: 0.82rem;
+}
+
+.btn-secundario:hover {
+    background: var(--teal);
+    color: #fff;
+}
+
+/* ---------------- MENSAGEM ---------------- */
+.mensagem {
+    margin-top: 14px;
+    padding: 11px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    background: #eef6f4;
+    border-left: 3px solid var(--teal);
+    color: var(--teal-escuro);
+}
+
+/* classe usada nos exercícios 3 e 15 */
+.escondido {
+    display: none;
+}
+
+/* ---------------- TEMA ESCURO (exercício 17) ---------------- */
+body.tema-escuro {
+    --texto: #e8eaed;
+    --texto-claro: #9aa5a5;
+    --linha: #3a4444;
+    --fundo: #1e2626;
+    --cartao: #263131;
+}
+
+body.tema-escuro .produto input[type="number"],
+body.tema-escuro .cupom input {
+    background: #1e2626;
+    color: #e8eaed;
+    border-color: #3a4444;
+}
+
+body.tema-escuro .produto .foto,
+body.tema-escuro .barra {
+    background: #1e2626;
+}
+
+body.tema-escuro .btn-secundario {
+    background: transparent;
+    color: var(--teal);
+}
+
+body.tema-escuro .mensagem {
+    background: #1e2626;
+}
+
+body.tema-escuro .produto.destaque {
+    background: #3a3320;
+}
+
+/* ---------------- RODAPÉ ---------------- */
+.rodape {
+    text-align: center;
+    padding: 22px;
+    font-size: 0.75rem;
+    color: #9aa5a5;
+}
+
+/* ---------------- CELULAR ---------------- */
+@media (max-width: 780px) {
+    .conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo {
+        position: static;
+    }
+
+    .produto {
+        grid-template-columns: 44px 1fr;
+        row-gap: 10px;
+    }
+
+    .produto .controles,
+    .produto .subtotal {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .produto input[type="number"] {
+        max-width: 90px;
+    }
+}

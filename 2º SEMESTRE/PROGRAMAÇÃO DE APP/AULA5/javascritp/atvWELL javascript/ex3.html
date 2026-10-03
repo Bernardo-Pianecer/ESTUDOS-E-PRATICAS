@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>Exercício 1</title>
+    <style>
+        main {
+            width: 50%;
+            margin-left: 25%;
+            border: 1px solid gray;
+            border-radius: 20px;
+            padding: 50px;
+        }
+
+        input,
+        label,
+        select,
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <label>Valor</label>
+        <input type="number" name="valor" id="valor" />
+
+        <label>Forma de pagamento</label>
+        <select name="pagamento" id="pagamento">
+            <option value="pix">PIX</option>
+            <option value="debito">Debito</option>
+            <option value="credito">Credito</option>
+            <option value="boleto">Boleto</option>
+        </select>
+
+        <button onclick="calcular()">Calcular</button>
+
+        <p id="retorno"></p>
+    </main>
+
+</body>
+
+<script>
+    function calcular() {
+        const valor = Number(document.getElementById("valor").value);
+        const pagamento = document.getElementById("pagamento").value;
+        const retorno = document.getElementById('retorno');
+        let valor_final = valor;
+
+        console.log(valor);
+        console.log(pagamento);
+
+        switch(pagamento){
+            case 'pix':
+            valor_final = valor - (valor * 0.10);
+            break
+            case 'credito':
+            valor_final = valor + (valor * 0.05);
+            break
+        }
+
+        retorno.innerText = "Valor fial: "+valor_final;
+    }
+
+</script>
+
+</html>

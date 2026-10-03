@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercicio 6</title>
+</head>
+<body>
+    <main>
+        <h1> Guardando dinheiro - WHILE</h1>
+        <input type="number" id="valor" placeholder="Digite sua Meta de economia">
+        <input type="number" id="mensal" placeholder="Digite o valor que deseja guardar por mês">
+        <button id="calcular" onclick="calcular()">Calcular</button>
+        <ul id="retorno">
+            <li></li>
+        </ul>
+        <script>
+            function calcular() {
+                const valor = Number(document.getElementById("valor").value);
+                const mensal = Number(document.getElementById("mensal").value);
+                let meses = 0;
+                let total = 0;
+                while (total < valor) {
+                    total += mensal;
+                    meses++;
+                }
+                document.getElementById("retorno").innerHTML = "<li>Você precisará de " + meses + " meses para guardar R$" + valor + "</li>";
+            }
+        </script>
+    </main>
+</body>
+</html>

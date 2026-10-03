@@ -1,0 +1,258 @@
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+    background-color: #f4f7f7;
+    }
+    .cabecalho {
+    position:relative;
+    overflow:hidden;
+    background-color: #2a9d80;
+    color: #ffffff;
+    padding: 20px;
+    border-bottom: 4px solid #00ffbf;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cabecalho:hover {
+    background-color: #1f7a63; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    }
+
+    .logo {
+    font-size: 24px;
+    font-weight: bold;
+    }
+    /* PASSO 4 */
+    .menu ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    }
+    .menu a {
+    color: #ffffff;
+    text-decoration: none;
+    }
+    .menu a:hover {
+    text-decoration: underline;
+    }
+    /* PASSO 6 */
+    .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    }
+    .container section {
+    margin-bottom: 40px;
+    }
+    /* PASSO 7 */
+    h1 { 
+    font-size: 32px; color: #1f7a63;
+    margin-bottom: 10px; 
+    }
+    h2 { 
+    font-size: 24px; color: #2a9d80;
+    margin-bottom: 16px; }
+    h3 { 
+    font-size: 18px;
+    margin-bottom: 8px;
+    }
+    p { 
+    margin-bottom: 10px;
+    }
+    .subtitulo { 
+    font-size: 18px; 
+    color: #666666; }
+    .aviso { 
+    color: #c0392b;
+    }
+    .destaque {
+    position: relative;
+    overflow: hidden;
+
+    background-color: #ffffff;
+    border-left: 5px solid #2a9d80;
+    border-radius: 12px;
+    padding: 30px;
+    }
+
+    /* Camada da animação */
+    .destaque::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: #2a9d80;
+    color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.8s ease;
+
+    z-index: 0;
+    }
+
+    /* Mantém o conteúdo acima da animação */
+    .destaque > * {
+    position: relative;
+    z-index: 1;
+    }
+
+    /* Ao passar o mouse */
+    .destaque:hover::before {
+    transform: scaleX(1);
+    }
+    .destaque h1 {
+    color: #2a9d80;
+    transition: color 0.8s ease;
+    }
+    .destaque:hover h1 {
+    color: #ffffff;
+    }
+    .destaque:hover p{
+    color: #f4f7f7;
+    }
+    .destaque:hover a{
+    color: #ffffff;
+    }
+    /* PASSO 8 */
+    .painel {
+    display: flex; 
+    gap: 20px; 
+    }
+    .cartao {
+    flex: 1;
+    background-color: #ffffff;
+    border: 1px solid #dfe6e6;
+    border-top: 4px solid #2a9d80;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .cartao:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    }
+    .numero { 
+    font-size: 32px; 
+    font-weight: bold; 
+    color: #2a9d80;
+    }
+    /* PASSO 9 */
+    .rolagem { overflow-x: auto; }
+    .tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    }
+    .tabela th,
+    .tabela td {
+    border: 1px solid #dfe6e6;
+    padding: 10px;
+    text-align: left;
+    }
+    .tabela th { background-color: #e8f5f0; color: #1f7a63; }
+    .tabela tbody tr:hover { background-color: #f4f7f7; }
+    .situacao {
+    background-color: #e8f5f0;
+    color: #1f7a63;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    }
+
+    .situacao.atrasado {
+    background-color: #fdecea;
+    color: #c0392b;
+    }
+    /* PASSO 10 */
+    .formulario {
+    background-color: #ffffff;
+    border: 1px solid #dfe6e6;
+    border-radius: 12px;
+    padding: 20px;
+    }
+    .formulario label {
+    display: block;
+    font-weight: bold;
+    margin-top: 12px;
+    margin-bottom: 4px;
+    }
+    .formulario input,
+    .formulario select,
+    .formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 16px;
+    }
+    .formulario input:focus,
+    .formulario select:focus,
+    .formulario textarea:focus {
+    outline: none;
+    border: 2px solid #2a9d80;
+    }
+    /* PASSO 11 */
+    .btn {
+    display: inline-block;
+    background-color: #2a9d80;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 16px;
+    }
+    .btn:hover { background-color: #1f7a63; }
+    /* PASSO 12 */
+    .contatos {
+    list-style: none;
+    background-color: #ffffff;
+    border: 1px solid #dfe6e6;
+    border-radius: 12px;
+    padding: 20px;
+    }
+    .contatos li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f3f3;
+    }
+    .contatos li:last-child { border-bottom: none; }
+
+    dape {
+    background-color: #2a9d80;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    }
+    .rodape p { margin-bottom: 0; }
+    /* PASSO 13 — sempre no FIM do arquivo */
+    @media (max-width: 768px) {
+    .cabecalho {
+    flex-direction: column;
+    gap: 12px;
+    }
+    .menu ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+    .painel { flex-direction: column; }
+    .destaque { padding: 20px; }
+    h1 { font-size: 24px; }
+    }

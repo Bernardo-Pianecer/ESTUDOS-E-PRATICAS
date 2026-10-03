@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <p id="resultado"></p>
+        <script>
+            var nomes = ["joao", "maria", "felipe"]
+            for(var i = 0; i < nomes.length; i++){
+                document.write(nomes[i] + "<br>");
+            }
+            nomes.forEach(function(value, index){
+                document.getElementById("resultado").innerHTML += "O nome do índice " + index + " é " + value + "<br>";
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 6 - Exercício 1: Carrinho de compras | SENAI</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+        --senai: #2a9d80;
+        --texto: #333333;
+        --claro: #6b7575;
+        --linha: #dce3e3;
+    }
+
+    body {
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+        color: var(--texto);
+        background: #f2f5f5;
+        line-height: 1.55;
+        font-size: 15px;
+    }
+
+    .folha {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        min-height: 100vh;
+        padding: 0 0 50px;
+    }
+
+    header.capa {
+        background: var(--senai);
+        color: #fff;
+        padding: 24px 46px;
+    }
+    header.capa .marca {
+        font-size: 0.72rem; font-weight: 600; letter-spacing: 2px;
+        text-transform: uppercase; opacity: 0.85; margin-bottom: 6px;
+    }
+    header.capa h1 { font-size: 1.6rem; font-weight: 800; }
+
+    .arquivos {
+        display: flex; gap: 40px; flex-wrap: wrap;
+        padding: 14px 46px; border-bottom: 1px solid var(--linha);
+        font-size: 0.85rem; color: var(--claro);
+    }
+    .arquivos strong { color: var(--texto); font-weight: 600; }
+
+    .regras {
+        padding: 16px 46px; border-bottom: 1px solid var(--linha);
+        font-size: 0.88rem; color: var(--claro);
+    }
+    .regras span { display: block; }
+    .regras span + span { margin-top: 3px; }
+
+    main { padding: 6px 46px 0; }
+
+    h2.grupo {
+        font-size: 0.74rem; font-weight: 700; letter-spacing: 2px;
+        text-transform: uppercase; color: var(--senai);
+        margin: 26px 0 10px; padding-bottom: 6px;
+        border-bottom: 1px solid var(--linha);
+    }
+
+    ol.itens { list-style: none; counter-reset: item; }
+    ol.itens li {
+        counter-increment: item;
+        position: relative;
+        padding: 7px 0 7px 62px;
+        border-bottom: 1px solid #f0f3f3;
+    }
+    ol.itens li:last-child { border-bottom: none; }
+    ol.itens li::before {
+        content: counter(item);
+        position: absolute; left: 26px; top: 7px;
+        font-size: 0.85rem; font-weight: 700; color: var(--senai);
+        min-width: 20px; text-align: right;
+    }
+    ol.itens li::after {
+        content: '';
+        position: absolute; left: 0; top: 10px;
+        width: 14px; height: 14px;
+        border: 1.5px solid var(--linha); border-radius: 3px;
+    }
+    ol.itens li .dica {
+        display: block; font-size: 0.79rem; color: var(--claro); margin-top: 2px;
+    }
+
+    code {
+        font-family: Consolas, monospace;
+        font-size: 0.9em;
+        color: #1f6e59;
+        background: #f0f6f4;
+        padding: 0 4px;
+        border-radius: 3px;
+    }
+
+    .ferramentas {
+        margin: 22px 46px 0;
+        border: 1px solid var(--linha);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .ferramentas h3 {
+        background: #f0f6f4; color: var(--senai);
+        font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+        text-transform: uppercase; padding: 9px 16px;
+        border-bottom: 1px solid var(--linha);
+    }
+    .ferramentas table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+    .ferramentas td { padding: 7px 16px; border-bottom: 1px solid #f0f3f3; vertical-align: top; }
+    .ferramentas tr:last-child td { border-bottom: none; }
+    .ferramentas td:first-child { width: 46%; }
+
+    .nota-final {
+        margin: 30px 46px 0; padding: 16px 20px;
+        border: 1px solid var(--linha); border-left: 3px solid var(--senai);
+        font-size: 0.88rem; color: var(--claro);
+    }
+    .nota-final strong { color: var(--texto); }
+
+    footer.rodape {
+        margin-top: 34px; padding: 0 46px;
+        font-size: 0.75rem; color: #9aa5a5;
+    }
+
+    @media print {
+        @page { size: A4 portrait; margin: 14mm; }
+        body { background: #fff; font-size: 10.5pt; line-height: 1.4; }
+        .folha { max-width: none; min-height: 0; padding: 0; }
+        header.capa { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 14px 0; }
+        .arquivos, .regras, main, .nota-final, footer.rodape,
+        .ferramentas { padding-left: 0; padding-right: 0; margin-left: 0; margin-right: 0; }
+        .ferramentas h3 { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding-left: 10px; }
+        .ferramentas td { padding-left: 10px; padding-right: 10px; }
+        h2.grupo { margin-top: 14px; }
+        ol.itens li { padding-top: 4px; padding-bottom: 4px; }
+    }
+
+    @media (max-width: 700px) {
+        header.capa, .arquivos, .regras, main, footer.rodape { padding-left: 20px; padding-right: 20px; }
+        .nota-final, .ferramentas { margin-left: 20px; margin-right: 20px; }
+    }
+</style>
+</head>
+<body>
+
+<div class="folha">
+
+<header class="capa">
+    <div class="marca">SENAI &bull; Programação de Aplicativos &bull; Aula 6</div>
+    <h1>Exercício 1 &mdash; Carrinho de compras</h1>
+</header>
+
+<div class="arquivos">
+    <span>Página pronta: <strong>index.html</strong> e <strong>css/estilo.css</strong></span>
+    <span>Seu arquivo: <strong>app.js</strong></span>
+    <span>Nome: ______________________________</span>
+</div>
+
+<div class="regras">
+    <span>Faça na ordem. <strong>Não altere o <code>index.html</code> nem o <code>estilo.css</code></strong> &mdash; todo o trabalho é no <code>app.js</code>.</span>
+    <span>Os preços e os nomes dos <code>id</code> já estão prontos para você. Abra o <code>index.html</code> no navegador e deixe o <strong>F12</strong> aberto na aba Console.</span>
+    <span>Salve com Ctrl+S e atualize o navegador a cada mudança.</span>
+</div>
+
+<main>
+
+<h2 class="grupo">Ligando o JavaScript na página</h2>
+<ol class="itens">
+    <li>Confirme que o <code>app.js</code> está sendo carregado: escreva um <code>console.log("app.js carregado!")</code> na primeira linha do arquivo e veja a mensagem aparecer no Console.</li>
+    <li>Escreva o nome da loja dentro do <code>&lt;h1 id="nomeLoja"&gt;</code> usando <code>textContent</code>. Escolha o nome que quiser.</li>
+    <li>Complete a função <code>testar()</code>, que já está ligada ao botão <strong>Testar conexão</strong>: ela deve escrever <code>"JavaScript conectado!"</code> dentro do <code>#mensagem</code> e também no Console.
+        <span class="dica">A caixa de mensagem começa escondida pela classe <code>escondido</code>. Ela só vai aparecer no exercício 15.</span>
+    </li>
+</ol>
+
+<h2 class="grupo">Lendo os campos do formulário</h2>
+<ol class="itens" start="4">
+    <li>Dentro da função <code>calcular()</code>, mostre no Console o <code>.value</code> do campo <code>#qtd1</code> e também o <code>typeof</code> dele. Digite <code>2</code> no campo, clique em <strong>Calcular carrinho</strong> e observe o que aparece.</li>
+    <li>Guarde as três quantidades (<code>#qtd1</code>, <code>#qtd2</code>, <code>#qtd3</code>) em variáveis, agora convertendo com <code>Number()</code>. Mostre o <code>typeof</code> de novo e compare com o exercício anterior.</li>
+</ol>
+
+<h2 class="grupo">As contas do carrinho</h2>
+<ol class="itens" start="6">
+    <li>Calcule o subtotal do <strong>Notebook</strong> (preço &times; quantidade) e escreva o resultado no <code>#sub1</code>, formatado com <code>toFixed(2)</code>.
+        <span class="dica">Os preços já estão no topo do <code>app.js</code>: <code>PRECO_NOTEBOOK</code>, <code>PRECO_MOUSE</code> e <code>PRECO_TECLADO</code>.</span>
+    </li>
+    <li>Faça o mesmo para o <strong>Mouse</strong> (<code>#sub2</code>) e para o <strong>Teclado</strong> (<code>#sub3</code>).</li>
+    <li>Some os três subtotais e escreva o resultado no <code>#subtotal</code> do resumo.</li>
+    <li>Some as três quantidades e escreva o resultado no <code>#contadorItens</code>, o número vermelho ao lado da sacolinha no topo da página.</li>
+    <li>Escreva o valor do frete no <code>#frete</code>. Use a constante <code>VALOR_FRETE</code> que já existe no arquivo.</li>
+    <li>Calcule o total (subtotal + frete) e escreva no <code>#total</code>.</li>
+</ol>
+
+<h2 class="grupo">O cupom de desconto</h2>
+<ol class="itens" start="12">
+    <li>Complete a função <code>aplicarCupom()</code>, ligada ao botão <strong>Aplicar</strong>: leia o código digitado em <code>#cupom</code>, calcule <strong>10% de desconto</strong> sobre o subtotal, escreva o valor no <code>#desconto</code> e atualize o <code>#total</code> descontando esse valor.
+        <span class="dica">Por enquanto o cupom vale para qualquer código digitado. Conferir se o código está certo exige <code>if</code> &mdash; é exercício da aula 7.</span>
+    </li>
+</ol>
+
+<h2 class="grupo">Mexendo no CSS pelo JavaScript</h2>
+<ol class="itens" start="13">
+    <li>No fim da função <code>calcular()</code>, pinte o <code>#total</code> de verde usando <code>.style.color</code>.</li>
+    <li>Ainda no <code>#total</code>, aumente a fonte com <code>.style.fontSize</code> e deixe em negrito com <code>.style.fontWeight</code>.
+        <span class="dica">No CSS é <code>font-size</code>, com hífen. No JavaScript vira <code>fontSize</code>, em camelCase. Vale para todas as propriedades.</span>
+    </li>
+    <li>Faça a caixa <code>#mensagem</code> aparecer: use <code>classList.remove("escondido")</code> dentro da função <code>testar()</code> do exercício 3.</li>
+    <li>Complete a função <code>destacarPromocao()</code>, ligada ao botão <strong>Destacar promoção</strong>: adicione a classe <code>destaque</code> ao <code>#produto2</code> com <code>classList.add</code>. O CSS dessa classe já está pronto.</li>
+    <li>Complete a função <code>alternarTema()</code>, ligada ao botão <strong>Tema escuro</strong>: use <code>document.body.classList.toggle("tema-escuro")</code>. Clique várias vezes e observe.
+        <span class="dica"><code>toggle</code> = se a classe não está, coloca; se está, tira. O tema escuro inteiro já está escrito no CSS.</span>
+    </li>
+    <li>Faça a barra de <strong>frete grátis</strong> crescer: calcule quantos por cento o subtotal representa de <code>FRETE_GRATIS_A_PARTIR_DE</code> e aplique esse valor em <code>.style.width</code> do <code>#barraFrete</code>.
+        <span class="dica">A largura precisa do <code>%</code> no fim: <code>"75" + "%"</code>. Se passar de 100% não tem problema agora &mdash; o CSS segura. Travar em 100% exige <code>if</code>, na aula 7.</span>
+    </li>
+</ol>
+
+<h2 class="grupo">Fechamento</h2>
+<ol class="itens" start="19">
+    <li>Complete a função <code>limpar()</code>, ligada ao botão <strong>Limpar carrinho</strong>: zere os quatro campos, zere todas as saídas e <strong>desfaça</strong> o que o JavaScript mexeu no CSS &mdash; tire o destaque do produto, volte a barra para <code>0%</code> e esconda a mensagem de novo.</li>
+    <li>Organize e entregue: comentários separando <strong>ENTRADA / PROCESSAMENTO / SAÍDA</strong> dentro de cada função, nomes de variáveis em <code>camelCase</code> e que digam o que guardam, arquivo formatado com <strong>Shift + Alt + F</strong> e <code>commit</code> no seu repositório.</li>
+</ol>
+
+<h2 class="grupo">Se sobrar tempo</h2>
+<ol class="itens" style="counter-reset: item 20;">
+    <li>Troque a cor da barra de frete para laranja pelo JavaScript quando ela for preenchida.</li>
+    <li>Faça o botão <strong>Destacar promoção</strong> também mudar o texto do <code>#mensagem</code> avisando qual produto está em promoção.</li>
+    <li>Formate os valores no padrão brasileiro, com vírgula: <code>valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })</code> no lugar do <code>toFixed(2)</code>.</li>
+    <li>Acrescente um quarto produto no <code>index.html</code>, com o mesmo padrão de <code>id</code>, e inclua-o nas contas.</li>
+</ol>
+
+</main>
+
+<div class="ferramentas">
+    <h3>Comandos que você vai usar</h3>
+    <table>
+        <tr>
+            <td><code>document.getElementById("id")</code></td>
+            <td>Pega um elemento da página pelo <code>id</code></td>
+        </tr>
+        <tr>
+            <td><code>.value</code></td>
+            <td>Lê o que está escrito num campo. <strong>Devolve sempre texto</strong></td>
+        </tr>
+        <tr>
+            <td><code>Number(...)</code></td>
+            <td>Converte texto em número, para poder fazer conta</td>
+        </tr>
+        <tr>
+            <td><code>.textContent = "..."</code></td>
+            <td>Escreve um texto dentro de um elemento da página</td>
+        </tr>
+        <tr>
+            <td><code>.toFixed(2)</code></td>
+            <td>Formata o número com duas casas decimais</td>
+        </tr>
+        <tr>
+            <td><code>.style.color = "green"</code></td>
+            <td>Muda uma propriedade de CSS direto no elemento</td>
+        </tr>
+        <tr>
+            <td><code>.classList.add("nome")</code></td>
+            <td>Coloca uma classe de CSS no elemento</td>
+        </tr>
+        <tr>
+            <td><code>.classList.remove("nome")</code></td>
+            <td>Tira essa classe do elemento</td>
+        </tr>
+        <tr>
+            <td><code>.classList.toggle("nome")</code></td>
+            <td>Coloca se não tem, tira se tem</td>
+        </tr>
+        <tr>
+            <td><code>console.log(...)</code></td>
+            <td>Mostra um valor no Console, para você acompanhar</td>
+        </tr>
+    </table>
+</div>
+
+<div class="nota-final">
+    <strong>Travou?</strong> Abra o Console (F12). Se aparecer
+    <code>Cannot read properties of null</code>, o <code>id</code> que você escreveu não existe na página &mdash;
+    confira letra por letra. Se aparecer <code>... is not defined</code>, o nome da função no
+    <code>onclick</code> não bate com o nome no <code>app.js</code>. E se o resultado for
+    <code>NaN</code>, faltou o <code>Number()</code> em algum campo.
+</div>
+
+<footer class="rodape">
+    SENAI &bull; Programação de Aplicativos &bull; Aula 6 &mdash; Exercício 1
+</footer>
+
+</div>
+
+</body>
+</html>
